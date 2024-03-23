@@ -8,21 +8,29 @@ import {
 } from "@/components/ui/navigation-menu"
 import Link from "next/link"
 import { ModeToggler } from "@/components/modeToggler"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Button, buttonVariants } from "@/components/ui/button"
 
 import { LuUserCircle2 } from "react-icons/lu";
-import { signOut, useSession } from "next-auth/react"
+// import { signOut, useSession } from "next-auth/react"
 
 
 export default function NavMenu() {
     const [open, setOpen] = useState<boolean>(false)
-    const { data: session } = useSession()
+    // const { data: session } = useSession()
+
+    const [navMenu, setNavMenu] = useState(true);
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            window.scrollY >= 150 ? setNavMenu(false) : setNavMenu(true);
+        });
+    }, []);
 
 
     return (
-        <header className={`flex mt-6 mb-10 mx-auto md:justify-around justify-between items-center w-full md:px-8 px-3 font-nekst`}>
+        <header className={`${navMenu ? "opacity-100" : "opacity-0"} flex transition-all duration-700 mt-6 mb-10 mx-auto md:justify-around justify-between items-center w-full md:px-8 px-3 font-nekst`}>
             <h1 className="text-5xl text-center font-neon dark:animate-dark-neonize">
                 E-learning
             </h1>
@@ -51,18 +59,19 @@ export default function NavMenu() {
                 </NavigationMenuList>
             </NavigationMenu>
             <div className="items-center justify-between hidden gap-4 md:flex ">
-                {session?.user ?
-                    <Button
+                {/* {session?.user ? */}
+                {/* <Button
                         className="w-full md:w-auto"
                         variant="destructive"
                         onClick={() => signOut({ callbackUrl: "/" })}
                     >
                         Sign out
                     </Button>
-                    :
-                    <Link href="/signin" aria-description="open profile" aria-label="open profile" aria-controls="navbar-default" aria-expanded="false" className={buttonVariants({ variant: "outline" })}>
-                        Sign in
-                    </Link>}
+                    : */}
+                <Link href="/signin" aria-description="open profile" aria-label="open profile" aria-controls="navbar-default" aria-expanded="false" className={buttonVariants({ variant: "outline" })}>
+                    Sign in
+                </Link>
+                {/* } */}
                 <ModeToggler />
             </div>
 

@@ -104,7 +104,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "dark-neonize": "dark-neonize 2s infinite alternate ease-in-out",
         neonize: "neonize 2s infinite alternate ease-in-out",
-        text: "text 4s ease infinite",
+        text: "text 5s ease infinite",
       },
     },
   },
