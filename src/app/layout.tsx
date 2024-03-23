@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} ${neonderthaw.variable} ${nekst.variable}`}>
+      <body className={`${manrope.variable} ${neonderthaw.variable} ${nekst.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -31,7 +31,7 @@ export default function RootLayout({
           <NavMenu />
           <ScrollButton />
           <SideMenu />
-          <main className="h-[5000px]">
+          <main className="min-h-screen">
             {children}
           </main>
           <Toaster richColors />
