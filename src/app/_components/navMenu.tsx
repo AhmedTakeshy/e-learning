@@ -59,19 +59,6 @@ export default function NavMenu() {
                 </NavigationMenuList>
             </NavigationMenu>
             <div className="items-center justify-between hidden gap-4 md:flex ">
-                {/* {session?.user ? */}
-                {/* <Button
-                        className="w-full md:w-auto"
-                        variant="destructive"
-                        onClick={() => signOut({ callbackUrl: "/" })}
-                    >
-                        Sign out
-                    </Button>
-                    : */}
-                <Link href="/signin" aria-description="open profile" aria-label="open profile" aria-controls="navbar-default" aria-expanded="false" className={buttonVariants({ variant: "outline" })}>
-                    Sign in
-                </Link>
-                {/* } */}
                 <ModeToggler />
             </div>
 
@@ -115,10 +102,6 @@ export default function NavMenu() {
                                     </NavigationMenuItem>
                                 </NavigationMenuList>
                             </NavigationMenu>
-                            <Link href="/signin" className={`${buttonVariants({ variant: "default" })} my-2 w-full mx-4 relative group hover:animate-flip perspective hover:bg-cyan-950`}>
-                                <LuUserCircle2 className="w-6 h-6" />
-                                <span className="flex items-center justify-center text-lg shadow-md shadow-blue-500 backface">Sign in</span>
-                            </Link>
                         </div>
                     </PopoverContent>
                 </Popover>
