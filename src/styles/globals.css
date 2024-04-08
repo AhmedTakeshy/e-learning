@@ -71,6 +71,10 @@
  .card-front{
   backface-visibility: hidden;
  }
+
+ .music {
+  box-shadow: none !important;
+ }
 @layer base {
   * {
     @apply border-border;

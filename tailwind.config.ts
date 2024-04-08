@@ -98,6 +98,14 @@ const config = {
             "background-position": "right center",
           },
         },
+        rotate: {
+          "0%": {
+            transform: "rotate(0deg)"
+          },
+          "100%": {
+            transform: "rotate(360deg)"
+          }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -105,6 +113,7 @@ const config = {
         "dark-neonize": "dark-neonize 2s infinite alternate ease-in-out",
         neonize: "neonize 2s infinite alternate ease-in-out",
         text: "text 5s ease infinite",
+        rotate: "rotate 3s linear infinite"
       },
     },
   },
