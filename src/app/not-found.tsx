@@ -16,7 +16,7 @@ export default function NotFound() {
                     </Link>
                 </div>
                 <div className="w-full mx-5 my-12 lg:flex lg:justify-end lg:w-1/2">
-                    <Image width={700} height={436} src="/images/not-found.png" className="w-full" alt="Page not found" />
+                    <Image width={700} height={436} src={"/images/not-found.png"} className="w-full" alt="Page not found" />
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { useEffect } from 'react'
 
+
 export default function Error({
     error,
     reset,
@@ -29,7 +30,7 @@ export default function Error({
                 </Button>
             </div>
             <div className="flex justify-center w-1/2 p-4 lg:h-full lg:items-baseline">
-                <Image src="/images/not-found.png" alt="pageNot found" width={700} height={500} className="object-cover" />
+                <Image src={"/images/not-found.png"} alt="pageNot found" width={700} height={500} className="object-cover" />
             </div>
         </div>
     )

@@ -29,7 +29,7 @@ export default function RootLayout({
           <NavMenu />
           <ScrollButton />
           <SideMenu />
-          <main className="min-h-screen h-[2000px]">
+          <main className="min-h-screen">
             {children}
           </main>
           <Toaster richColors />
