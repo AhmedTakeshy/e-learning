@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import NavMenu from "@/app/_components/navMenu";
 import ScrollButton from "@/components/scrollButton";
 import SideMenu from "./_components/sideMenu";
+import MusicPlayer from "./_components/musicPlayer";
 
 export const metadata: Metadata = {
   title: "E-Learning",
@@ -29,6 +30,7 @@ export default function RootLayout({
           <NavMenu />
           <ScrollButton />
           <SideMenu />
+          <MusicPlayer />
           <main className="min-h-screen">
             {children}
           </main>
