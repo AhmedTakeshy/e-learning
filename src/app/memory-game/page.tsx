@@ -1,10 +1,10 @@
-import Game from "./_components/game";
+import MemoryGame from "./_components/memoryGame";
 
 
 export default function page() {
     return (
         <div className='flex flex-col justify-center items-center'>
-            <Game />
+            <MemoryGame />
         </div>
     )
 }

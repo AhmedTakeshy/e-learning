@@ -6,7 +6,7 @@ import { categories } from "../categories";
 const board = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
 
-export default function Game() {
+export default function MemoryGame() {
     const [startGame, setStartGame] = useState<boolean>(false);
     const [level, setLevel] = useState<number>(8);
     const [category, setCategory] = useState<string[]>(categories[0].words);
