@@ -24,13 +24,13 @@ export default function NavMenu() {
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            window.scrollY >= 150 ? setNavMenu(false) : setNavMenu(true);
+            window.scrollY >= 300 ? setNavMenu(false) : setNavMenu(true);
         });
     }, []);
 
 
     return (
-        <header className={`${navMenu ? "opacity-100" : "opacity-0"} flex transition-all duration-700 mt-6 mb-10 mx-auto md:justify-around justify-between items-center w-full md:px-8 px-3 font-nekst`}>
+        <header className={`${navMenu ? "opacity-100" : "opacity-0"} flex transition-all duration-300 mt-6 mb-10 mx-auto md:justify-around justify-between items-center w-full md:px-8 px-3 font-nekst`}>
             <h1 className="text-5xl text-center font-neon dark:animate-dark-neonize">
                 E-learning
             </h1>
