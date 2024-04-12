@@ -72,9 +72,11 @@
   backface-visibility: hidden;
  }
 
- .music {
+ .music, .rhap_container {
   box-shadow: none !important;
+  background-color: transparent !important;
  }
+
 @layer base {
   * {
     @apply border-border;

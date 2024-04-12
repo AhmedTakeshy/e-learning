@@ -31,7 +31,7 @@ export default function RootLayout({
           <ScrollButton />
           <SideMenu />
           <MusicPlayer />
-          <main className="min-h-screen">
+          <main className="">
             {children}
           </main>
           <Toaster richColors />
