@@ -68,12 +68,12 @@ export default function MemoryGame() {
 
         !startGame ? (
             <div className="flex flex-col gap-2 absolute top-40 bg-slate-700/50 backdrop-blur
-            p-2.5 z-[3] min-w-96 justify-between rounded-xl">
+            p-2.5 z-[3] sm:min-w-96 justify-between rounded-xl mb-4">
                 <h2 className="text-xl font-semibold text-center dark:text-slate-100 !mb-4">Select the difficulty</h2>
                 <Button size="lg" className={`w-full hover:bg-muted-foreground ${level === 8 ? "bg-muted-foreground" : ""}`} onClick={() => setLevel(8)}>Easy</Button>
                 <Button size="lg" className={`w-full hover:bg-muted-foreground ${level === 15 ? "bg-muted-foreground" : ""}`} onClick={() => setLevel(15)}>Medium</Button>
                 <Button size="lg" className={`w-full hover:bg-muted-foreground ${level === 25 ? "bg-muted-foreground" : ""}`} onClick={() => setLevel(25)}>Hard</Button>
-                <div className="grid grid-cols-2 gap-2 !mt-8">
+                <div className="grid sm:grid-cols-2 gap-2 !mt-8">
                     <h2 className="text-xl font-semibold text-center dark:text-slate-100 !mb-4 sm:col-span-2">Select the the category</h2>
                     {categories.map((cat, i) => (
                         <Button key={i} size="lg" className={`w-full hover:bg-muted-foreground ${category === cat.words ? " bg-muted-foreground" : ""}`} onClick={() => {
@@ -97,7 +97,10 @@ export default function MemoryGame() {
                     {gameOver ? (
                         <p className="text-center text-2xl font-semibold">Game Over! Congratulations! 👏🏻👏🏻</p>
                     ) : (
-                        <div className={`grid ${level === 8 ? "grid-cols-[repeat(4,8.5rem)]" : (level === 15 ? "grid-cols-[repeat(6,8.5rem)]" : (level === 25 ? "grid-cols-[repeat(8,8.5rem)]" : ""))} gap-4 border-2 p-8 rounded-xl border-zinc-300`}>
+                        <div className={`grid mx-2 
+                        ${level === 8 ? "grid-cols-[repeat(2,8.5rem)] sm:grid-cols-[repeat(3,8.5rem)] md:grid-cols-[repeat(4,8.5rem)]" :
+                                (level === 15 ? "grid-cols-[repeat(2,8.5rem)] sm:grid-cols-[repeat(3,8.5rem)] md:grid-cols-[repeat(4,8.5rem)] lg:grid-cols-[repeat(6,8.5rem)]" :
+                                    (level === 25 ? "grid-cols-[repeat(2,8.5rem)] sm:grid-cols-[repeat(3,8.5rem)] md:grid-cols-[repeat(4,8.5rem)] lg:grid-cols-[repeat(6,8.5rem)] xl:grid-cols-[repeat(8,8.5rem)]" : ""))} gap-4 border-2 p-8 rounded-xl border-zinc-300`}>
                             {boardData.map((data, i) => {
                                 const flipped = flippedCards.includes(i);
                                 const matched = matchedCards.includes(i);
@@ -116,7 +119,7 @@ export default function MemoryGame() {
                             })}
                         </div>
                     )}
-                    <ul className="mx-auto grid grid-cols-2">
+                    <ul className="mx-auto grid sm:grid-cols-2 text-center">
                         {translation.map((word, i) => (
                             <li className="text-lg font-semibold" key={i}>{category[i]}  -  {word}</li>
                         ))}

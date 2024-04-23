@@ -1,0 +1,72 @@
+"use client"
+import { AnimatedTooltip } from '@/components/animated-tooltip';
+import { BackgroundBeams } from '@/components/background-beams'
+import Link from 'next/link'
+
+export default function Footer() {
+    const team = [
+        {
+            id: 1,
+            name: "Hatice Özge Gice",
+            designation: "Team Leader (CEO)",
+            image: "/images/ozge.webp",
+        },
+        {
+            id: 2,
+            name: "Ahmed Abdelsamie",
+            designation: "Web Developer",
+            image: "/images/ahmed.jpeg",
+        },
+        {
+            id: 3,
+            name: "Batuhan Yaşılak",
+            designation: "Researcher for: Games",
+            image: "/images/bat.jpg",
+        },
+        {
+            id: 4,
+            name: "Okan Sami Yücel",
+            designation: "Researcher for: Visual Arts",
+            image: "/images/okan.jpg",
+        },
+        {
+            id: 5,
+            name: "Sayfullah Altıok",
+            designation: "Researcher for: Music Effects",
+            image: "/images/sayf.jpg",
+        },
+
+    ];
+    return (
+        <footer id="about" className='flex items-center justify-center gap-2 text-gray-400 mb-1 flex-col relative h-96 mt-8'>
+            <div className="flex flex-col justify-start gap-4 items-center pt-2.5 relative z-10">
+                <div className="flex flex-row items-center justify-center mt-10 w-full">
+                    <AnimatedTooltip items={team} />
+                </div>
+                <p className="text-slate-300 max-w-lg mx-auto my-2 text-justify leading-8">
+                    We&apos;re a team of passionate student who decided to make a web app as a project for one of our courses.
+                    We made researches and we found that the best way to learn a new language is by playing games, so we decided to make a web app that provides fun and challenging games for those who want to learn English.
+                    Addition to that, we provide music in app to make the experience more enjoyable.
+                    We hope you enjoy our
+                    <span className="text-center inline-block w-full">app and learn English in a fun way.</span>
+                </p>
+            </div>
+            <div className="flex items-center justify-center gap-2 text-gray-400 mb-1 flex-col mt-8 relative z-10">
+                <p>
+                    Copyrights &copy; 2024 E-Learning All Rights Reserved.
+                </p>
+                <p>
+                    Developed by
+                    <Link
+                        href="https://takeshy.tech"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className='font-bold animate-text text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-orange-500 to-purple-500'
+                    > Takeshy
+                    </Link>
+                </p>
+            </div>
+            <BackgroundBeams className=' rotate-180' />
+        </footer>
+    )
+}
