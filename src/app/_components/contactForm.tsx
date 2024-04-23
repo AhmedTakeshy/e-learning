@@ -153,7 +153,7 @@ export default function ContactForm() {
                     <p className="text-slate-300 leading-6">
                         Welcome to E-learning, the best learning web app on the web.
                         We provide fun, enjoyable, and challenging games who want to learn English.
-                        With us definitely you will learn English in a fun way, and for course we would love hear from you,
+                        With us definitely you will learn English in a fun way, and of course we would love to hear from you,
                         so don&apos;t hesitate to contact us.
                     </p>
 

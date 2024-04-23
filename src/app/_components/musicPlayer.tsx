@@ -31,7 +31,7 @@ export default function MusicPlayer() {
     return (
 
         <AudioPlayer
-            // autoPlay
+            autoPlay
             preload='metadata'
             loop
             autoPlayAfterSrcChange={false}
