@@ -15,14 +15,6 @@ const playlist = [
 
 export default function MusicPlayer() {
     const [currentTrack, setTrackIndex] = useState(0)
-    const [isPlaying, setIsPlaying] = useState(false)
-
-
-
-    const handlePlay = () => {
-        setIsPlaying(prev => !prev)
-
-    }
 
     const handleClickNext = () => {
         setTrackIndex((currentTrack) =>
@@ -39,15 +31,17 @@ export default function MusicPlayer() {
     return (
 
         <AudioPlayer
-            autoPlay={true}
-            autoPlayAfterSrcChange={true}
+            // autoPlay
+            preload='metadata'
+            loop
+            autoPlayAfterSrcChange={false}
+            onPlay={() => console.log('onPlay')}
             onEnded={handleClickNext}
-            onPlay={handlePlay}
             showFilledProgress={false}
             customAdditionalControls={[]}
             customProgressBarSection={[]}
             customVolumeControls={[]}
-            volume={1}
+            volume={1.0}
             showSkipControls
             showJumpControls={false}
             onClickNext={handleClickNext}
@@ -66,7 +60,7 @@ export default function MusicPlayer() {
                 volumeMute: <TbVolumeOff className='fill-indigo-400 w-7 h-7 hover:fill-white text-white hover:text-rose-600 [&_*]:transition-all [&_*]:duration-300 [&_*]:ease-in' />,
 
             }}
-            className='music fixed !w-1/12 p-4 rounded-lg top-12 right-0 duration-1000 ease-in-out transition-all group rotate-90'
+            className='music z-50 fixed !w-1/12 p-4 rounded-lg top-12 right-0 duration-1000 ease-in-out transition-all group rotate-90'
         />
     )
 }

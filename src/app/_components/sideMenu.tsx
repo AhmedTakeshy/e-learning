@@ -1,5 +1,4 @@
 "use client"
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { CgGames } from 'react-icons/cg'
@@ -26,7 +25,7 @@ export default function SideMenu() {
 
     return (
         <ul
-            className={`z-20 flex shrink-0 grow-0 justify-around gap-4 border-t border-gray-200 bg-gray-800/30 dark:bg-gray-700/20 py-8 px-2 shadow-lg backdrop-blur dark:border-slate-600/60  fixed top-2/4 -translate-y-2/4 ${sideMenu ? "left-8 " : "-left-24"} transition-all min-h-[auto] min-w-[64px] flex-col rounded-full border duration-500 ease-linear font-nekst`}
+            className={`z-20 flex shrink-0 grow-0 justify-around gap-4 border-t border-gray-200 bg-gray-800/30 dark:bg-gray-700/20 py-8 px-2 shadow-lg backdrop-blur dark:border-slate-600/60  fixed top-2/4 -translate-y-2/4 ${sideMenu ? "left-6 " : "-left-24"} transition-all min-h-[auto] min-w-[64px] flex-col rounded-full border duration-500 ease-linear font-nekst`}
         >
             <Link href="/" className='flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-slate-800'>
                 <HiOutlineHomeModern size={20} />
@@ -40,9 +39,8 @@ export default function SideMenu() {
                 <FiMessageSquare size={20} />
                 <small className="text-xs font-medium text-center">Contact</small>
             </Link>
-            <hr className="dark:border-gray-700/60" />
             <Link href="/#about" className='flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-slate-800'>
-                <FaRegUser size={20} />
+                <FiMessageSquare size={20} />
                 <small className="text-xs font-medium text-center">About</small>
             </Link>
         </ul>

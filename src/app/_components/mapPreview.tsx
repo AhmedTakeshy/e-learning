@@ -11,17 +11,18 @@ export default function MapPreview() {
         longitude: -94.578331,
         zoom: 2,
     })
+    const isMobile = (typeof window !== "undefined" && window.navigator.userAgent.includes("Mobile")) || window.innerWidth < 768;
 
     return (
         <Map
             mapboxAccessToken={mapboxToken}
             {...viewState}
             style={{
-                width: `52rem`,
-                height: "38rem",
+                width: isMobile ? "23rem" : "52rem",
+                height: `${isMobile ? "25rem" : "38rem"}`,
                 borderRadius: "1rem",
                 padding: "2rem",
-                marginTop: "2rem",
+                margin: "2rem",
                 display: "block",
             }}
             onZoom={(e) => setViewState(e.viewState)}

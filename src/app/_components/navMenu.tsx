@@ -11,14 +11,11 @@ import { ModeToggler } from "@/components/modeToggler"
 import { useEffect, useState } from "react"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Button, buttonVariants } from "@/components/ui/button"
-
 import { LuUserCircle2 } from "react-icons/lu";
-// import { signOut, useSession } from "next-auth/react"
 
 
 export default function NavMenu() {
     const [open, setOpen] = useState<boolean>(false)
-    // const { data: session } = useSession()
 
     const [navMenu, setNavMenu] = useState(true);
 
@@ -42,17 +39,17 @@ export default function NavMenu() {
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <Link href="/products" legacyBehavior passHref>
-                            <NavigationMenuLink className={`${navigationMenuTriggerStyle()} text-base font-bold`}>Products</NavigationMenuLink>
+                        <Link href="/#games" legacyBehavior passHref>
+                            <NavigationMenuLink className={`${navigationMenuTriggerStyle()} text-base font-bold`}>Games</NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <Link href="/services" legacyBehavior passHref>
-                            <NavigationMenuLink className={`${navigationMenuTriggerStyle()} text-base font-bold`}>Services</NavigationMenuLink>
+                        <Link href="/#contact" legacyBehavior passHref>
+                            <NavigationMenuLink className={`${navigationMenuTriggerStyle()} text-base font-bold`}>Contact</NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <Link href="/about" legacyBehavior passHref>
+                        <Link href="/#about" legacyBehavior passHref>
                             <NavigationMenuLink className={`${navigationMenuTriggerStyle()} text-base font-bold`}>About</NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
@@ -86,17 +83,17 @@ export default function NavMenu() {
                                         </Link>
                                     </NavigationMenuItem>
                                     <NavigationMenuItem>
-                                        <Link href="/products" legacyBehavior passHref>
-                                            <NavigationMenuLink onClick={() => setOpen(false)} className={navigationMenuTriggerStyle()}>Products</NavigationMenuLink>
+                                        <Link href="/#games" legacyBehavior passHref>
+                                            <NavigationMenuLink onClick={() => setOpen(false)} className={navigationMenuTriggerStyle()}>Games</NavigationMenuLink>
                                         </Link>
                                     </NavigationMenuItem>
                                     <NavigationMenuItem>
-                                        <Link href="/services" legacyBehavior passHref>
-                                            <NavigationMenuLink onClick={() => setOpen(false)} className={navigationMenuTriggerStyle()}>Services</NavigationMenuLink>
+                                        <Link href="/#contact" legacyBehavior passHref>
+                                            <NavigationMenuLink onClick={() => setOpen(false)} className={navigationMenuTriggerStyle()}>Contact</NavigationMenuLink>
                                         </Link>
                                     </NavigationMenuItem>
                                     <NavigationMenuItem>
-                                        <Link href="/about" legacyBehavior passHref>
+                                        <Link href="/#about" legacyBehavior passHref>
                                             <NavigationMenuLink onClick={() => setOpen(false)} className={navigationMenuTriggerStyle()}>About</NavigationMenuLink>
                                         </Link>
                                     </NavigationMenuItem>
