@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss"
+const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette")
 
 const config = {
   darkMode: ["class"],
@@ -105,7 +106,23 @@ const config = {
           "100%": {
             transform: "rotate(360deg)"
           }
-        }
+        },
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
+          },
+        },
+        shimmer: {
+          from: {
+            "backgroundPosition": "0 0"
+          },
+          to: {
+            "backgroundPosition": "-200% 0"
+          }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -113,11 +130,23 @@ const config = {
         "dark-neonize": "dark-neonize 2s infinite alternate ease-in-out",
         neonize: "neonize 2s infinite alternate ease-in-out",
         text: "text 5s ease infinite",
-        rotate: "rotate 3s linear infinite"
+        rotate: "rotate 3s linear infinite",
+        shimmer: "shimmer 2s linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), addVariablesForColors],
 } satisfies Config
 
 export default config
+
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
