@@ -14,5 +14,3 @@ export default function page() {
         </div>
     )
 }
-
-//try to remove the publish date from the crossword game name
