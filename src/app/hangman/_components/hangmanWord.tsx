@@ -8,12 +8,13 @@ type HangmanWordProps = {
 }
 
 export default function HangmanWord({ guessLetters, wordToGuess, onReset, result = false }: HangmanWordProps) {
+
     return (
-        <div className="flex items-end justify-between gap-12">
+        <section className="flex items-end justify-between gap-12">
             <div className='flex gap-3 text-3xl font-bold uppercase lg:text-6xl'>
                 {/* take the word, create individual characters, write with map */}
                 {wordToGuess.split('').map((letter, index) => (
-                    <span className='border-b-8 border-black rounded-md' key={index}>
+                    <div className='border-b-8 border-black rounded-md' key={index}>
                         <span style={{
                             visibility: guessLetters.includes(letter) || result
                                 ? 'visible'
@@ -22,10 +23,10 @@ export default function HangmanWord({ guessLetters, wordToGuess, onReset, result
                         }}>
                             {letter}
                         </span>
-                    </span>
+                    </div>
                 ))}
             </div>
             {result ? <Button size="lg" onClick={onReset} variant="secondary" className="shadow-lg">Restart</Button> : null}
-        </div>
+        </section>
     )
 }

@@ -53,7 +53,7 @@ export default function Game() {
 
     useEffect(() => {
         if (isWinner) {
-            toast('Congratulations, you won! 👏', {
+            toast.success('Congratulations, you won! 👏', {
                 description: `The word was: ${wordToGuess} 🎉`,
             });
         }
@@ -79,7 +79,7 @@ export default function Game() {
                 <HangmanDraw numberOfGuess={incorrectLetters.length} />
                 <HangmanWord
                     onReset={resetGame}
-                    result={isLoser}
+                    result={isLoser || isWinner}
                     guessLetters={guessLetters}
                     wordToGuess={wordToGuess}
                 />
