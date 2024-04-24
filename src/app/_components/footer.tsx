@@ -8,7 +8,7 @@ export default function Footer() {
         {
             id: 1,
             name: "Hatice Özge Gice",
-            designation: "Team Leader (CEO)",
+            designation: "Team Leader",
             image: "/images/ozge.webp",
         },
         {
@@ -31,7 +31,7 @@ export default function Footer() {
         },
         {
             id: 5,
-            name: "Sayfullah Altıok",
+            name: "Seyfullah Altıok",
             designation: "Researcher for: Music Effects",
             image: "/images/sayf.jpg",
         },
@@ -43,8 +43,8 @@ export default function Footer() {
                 <div className="flex flex-row items-center justify-center mt-10 w-full">
                     <AnimatedTooltip items={team} />
                 </div>
-                <p className=" max-w-lg mx-auto my-2 text-justify leading-8">
-                    We&apos;re a team of passionate student who decided to make a web app as a project for one of our courses. We made researches and tried to find most effective aspects for those who want to learn English, so we decided to make a web app that provides fun and challenging games. Addition to that, we provide music in app to make the experience more enjoyable.We hope you enjoy our app and learn English in a fun way.
+                <p className=" max-w-lg mx-4 my-2 text-justify leading-8">
+                    We&apos;re a team of passionate student who decided to make a web app as a project for one of our courses. We made researches and tried to find most effective aspects for those who want to learn English, so we decided to make a web app that provides fun and challenging games. Addition to that, we provide music in app to make the experience more enjoyable. We hope you enjoy our app and learn English in a fun way.
                 </p>
             </div>
             <div className="flex items-center justify-center gap-2 pb-2 flex-col mt-8 relative z-10">
