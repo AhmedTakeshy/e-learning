@@ -4,9 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Form, FormControl, FormField, FormMessage, FormItem } from "@/components/ui/form"
 import { ContactSchema, contactSchema } from "@/lib/formSchemas"
-import { Textarea } from "@/components/ui/textarea"
 import SubmitButton from "@/components/submitButton"
-// import { contactFormAction } from "@/_actions/userActions"
+import { contactFormAction } from "@/_actions/userActions"
 import { toast } from "sonner"
 import { FaMapMarkerAlt } from 'react-icons/fa'
 
@@ -33,15 +32,14 @@ export default function ContactForm() {
                 setIsPending(false)
                 return
             }
-            const res = result.data
+            const res = await contactFormAction(result.data)
             console.log("🚀 ~ submitContact ~ res:", res)
-            // await contactFormAction(result.data)
-            // if (res.statusCode === 200) {
-            //     form.reset()
-            //     toast.success("Contact form submitted successfully", {
-            //         description: "We will get back to you soon, thank you!",
-            //     })
-            // }
+            if (res.statusCode === 200) {
+                form.reset()
+                toast.success("Contact form submitted successfully", {
+                    description: "We will get back to you soon, thank you!",
+                })
+            }
         } catch (error) {
             toast.error("Error", {
                 description: "Internal Server Error message not sent!",
@@ -113,7 +111,7 @@ export default function ContactForm() {
                                         <input
                                             {...field}
                                             className="w-full dark:bg-slate-100 text-slate-900 mt-2 p-3 rounded-lg focus:outline-none"
-                                            type="number"
+                                            type="text"
                                             placeholder="Phone" />
                                     </FormControl>
                                     <FormMessage />
@@ -127,7 +125,7 @@ export default function ContactForm() {
                         render={({ field }) => (
                             <FormItem>
                                 <FormControl>
-                                    <Textarea
+                                    <textarea
                                         {...field}
                                         placeholder="Message*"
                                         className="w-full h-32 dark:bg-slate-100 text-slate-900 mt-6 mb-4 p-3 rounded-lg focus:outline-none"

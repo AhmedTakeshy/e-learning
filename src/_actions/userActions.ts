@@ -1,89 +1,56 @@
 "use server"
 import { ContactSchema, contactSchema, } from "@/lib/formSchemas";
-// import Mailjet from "node-mailjet";
-import { revalidatePath } from "next/cache";
+import sgMail from "@sendgrid/mail";
 
 
 
 
-// export async function contactFormAction(values: ContactSchema): Promise<ServerResponse<null>> {
-//     try {
-//         const defaultClient = SibApiV3Sdk.ApiClient.instance;
-//         const apiKey = defaultClient.authentications['api-key'];
-//         apiKey.apiKey = process.env.SENDINBLUE_API_KEY;
-//         let apiKey = defaultClient.authentications['api-key'];
-//         apiKey.apiKey = 'xkeysib-YOUR_API_KEY';
-//         const mailjet = Mailjet.apiConnect(
-//             `${process.env.MAILJET_API_KEY}`,
-//             `${process.env.MAILJET_SECRET_KEY}`,
-//         )
-//         const result = await contactSchema.safeParseAsync(values)
-//         if (!result.success) {
-//             return {
-//                 statusCode: 400,
-//                 status: "Error",
-//                 errorMessage: result.error.errors[0].message,
-//             }
-//         }
-//         const { fullName, email, subject, message, phone } = result.data
-//         const messageSent = await prisma.contact.create({
-//             data: {
-//                 fullName,
-//                 email,
-//                 subject,
-//                 phone,
-//                 message,
-//             }
-//         })
-//         if (!messageSent) {
-//             return {
-//                 statusCode: 502,
-//                 status: "Error",
-//                 errorMessage: "Internal Server Error message not sent!",
-//             }
-//         }
-//         const request = await mailjet
-//             .post("send", { version: "v3.1" })
-//             .request({
-//                 Messages: [
-//                     {
-//                         From: {
-//                             Email: `powergym@mail.com`,
-//                             Name: "Power Gym"
-//                         },
-//                         To: [
-//                             {
-//                                 Email: email,
-//                                 Name: fullName
-//                             }
-//                         ],
-//                         TemplateID: 5810030,
-//                         TemplateLanguage: true,
-//                         Subject: "Power Gym - Contact Form",
-//                         Variables: { name: `${fullName.split(" ")[0]}` }
-//                     },
-//                 ]
-//             })
-//         const res = await JSON.parse(JSON.stringify(request.body))
-//         if (res.Messages[0].Status !== "success") {
-//             return {
-//                 statusCode: 502,
-//                 status: "Error",
-//                 errorMessage: "Internal Server Error with sending the confirmation email",
-//             }
-//         }
-//         revalidatePath("/admin")
-//         return {
-//             statusCode: 200,
-//             status: "Success",
-//             successMessage: "Contact form submitted successfully",
-//             data: null,
-//         }
-//     } catch (error) {
-//         return {
-//             statusCode: 500,
-//             status: "Error",
-//             errorMessage: "Internal Server Error",
-//         }
-//     }
-// }
+export async function contactFormAction(values: ContactSchema): Promise<ServerResponse<null>> {
+    sgMail.setApiKey(`${process.env.SENDGRID_API_KEY}`)
+    try {
+
+        const result = await contactSchema.safeParseAsync(values)
+        if (!result.success) {
+            return {
+                statusCode: 400,
+                status: "Error",
+                errorMessage: result.error.errors[0].message,
+            }
+        }
+        const { firstName, lastName, email, message, phone } = result.data
+        const fullName = `${firstName} ${lastName}`
+        const sentMessage = [
+            {
+                to: email,
+                from: "E-Learning <learninge@mail.com>",
+                subject: "Contact Form Submission",
+                templateId: "d-0c19a7cd19214cc6b17081425c1f1948",
+                replyTo: "learninge@mail.com",
+                dynamicTemplateData: {
+                    name: fullName,
+                },
+            },
+            {
+                to: "learninge@mail.com",
+                from: "E-Learning <learninge@mail.com>",
+                subject: "Contact Form Submission",
+                text: `Name: ${fullName} \n Email: ${email} \n Phone: ${phone} \n Message: ${message}`,
+                html: `<p>Name: ${fullName}</p> <p>Email: ${email}</p> <p>Phone: ${phone}</p> <p>Message: ${message}</p>`
+            }
+        ]
+
+        const res = await sgMail.send(sentMessage)
+        return {
+            statusCode: 200,
+            status: "Success",
+            successMessage: "Contact form submitted successfully",
+            data: null,
+        }
+    } catch (error) {
+        return {
+            statusCode: 500,
+            status: "Error",
+            errorMessage: "Internal Server Error",
+        }
+    }
+}
