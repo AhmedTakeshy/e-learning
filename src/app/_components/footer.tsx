@@ -38,16 +38,16 @@ export default function Footer() {
 
     ];
     return (
-        <footer id="about" className='flex items-center justify-center gap-2  mb-1 flex-col relative h-96 mt-8'>
+        <footer id="about" className='relative flex flex-col items-center justify-center gap-2 mt-20 mb-1 h-96'>
             <div className="flex flex-col justify-start gap-4 items-center pt-2.5 relative z-10">
-                <div className="flex flex-row items-center justify-center mt-10 w-full">
+                <div className="flex flex-row items-center justify-center w-full pt-12">
                     <AnimatedTooltip items={team} />
                 </div>
-                <p className=" max-w-lg mx-4 my-2 text-justify leading-8">
+                <p className="max-w-lg mx-4 my-2 leading-8 text-justify ">
                     We&apos;re a team of passionate student who decided to make a web app as a project for one of our courses. We made researches and tried to find most effective aspects for those who want to learn English, so we decided to make a web app that provides fun and challenging games. Addition to that, we provide music in app to make the experience more enjoyable. We hope you enjoy our app and learn English in a fun way.
                 </p>
             </div>
-            <div className="flex items-center justify-center gap-2 pb-2 flex-col mt-8 relative z-10">
+            <div className="relative z-10 flex flex-col items-center justify-center gap-2 pb-2 mt-8 text-center">
                 <p>
                     Copyrights &copy; 2024 E-Learning All Rights Reserved.
                 </p>
@@ -57,12 +57,12 @@ export default function Footer() {
                         href="https://takeshy.tech"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className='font-bold animate-text text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-orange-500 to-purple-500'
+                        className='font-bold text-transparent animate-text bg-clip-text bg-gradient-to-r from-blue-500 via-orange-500 to-purple-500'
                     > Takeshy
                     </Link>
                 </p>
             </div>
-            <BackgroundBeams className=' rotate-180' />
+            <BackgroundBeams className='rotate-180 ' />
         </footer>
     )
 }

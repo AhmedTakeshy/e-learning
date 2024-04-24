@@ -49,21 +49,21 @@ export default function ContactForm() {
     }
 
     return (
-        <div className="container mx-auto my-4 px-4 lg:px-20 relative z-10">
+        <div className="container relative z-10 px-4 mx-auto my-4 lg:px-20">
             <Form {...form}>
                 <form
                     onSubmit={form.handleSubmit(submitContact)}
-                    className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl dark:bg-slate-700 bg-slate-200">
-                    <h1 className="font-bold uppercase text-5xl text-slate-900 font-nekst">Send us a <br /> message</h1>
+                    className="w-full p-8 my-4 mr-auto shadow-2xl md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 rounded-2xl dark:bg-slate-700 bg-slate-200">
+                    <h1 className="text-5xl font-bold uppercase text-slate-900 font-nekst">Send us a <br /> message</h1>
 
-                    <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
+                    <div className="grid grid-cols-1 gap-5 mt-5 md:grid-cols-2">
                         <FormField
                             control={form.control}
                             name="firstName"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormControl>
-                                        <input {...field} className="w-full dark:bg-slate-200 text-slate-900 mt-2 p-3 rounded-lg focus:outline-none"
+                                        <input {...field} className="w-full p-3 mt-2 rounded-lg dark:bg-slate-200 text-slate-900 focus:outline-none"
                                             type="text" placeholder="First Name*" />
                                     </FormControl>
                                     <FormMessage />
@@ -78,7 +78,7 @@ export default function ContactForm() {
                                     <FormControl>
                                         <input
                                             {...field}
-                                            className="w-full dark:bg-slate-100 text-slate-900 mt-2 p-3 rounded-lg focus:outline-none"
+                                            className="w-full p-3 mt-2 rounded-lg dark:bg-slate-100 text-slate-900 focus:outline-none"
                                             type="text"
                                             placeholder="Last Name*" />
                                     </FormControl>
@@ -94,7 +94,7 @@ export default function ContactForm() {
                                     <FormControl>
                                         <input
                                             {...field}
-                                            className="w-full dark:bg-slate-100 text-slate-900 mt-2 p-3 rounded-lg focus:outline-none"
+                                            className="w-full p-3 mt-2 rounded-lg dark:bg-slate-100 text-slate-900 focus:outline-none"
                                             type="email"
                                             placeholder="Email*" />
                                     </FormControl>
@@ -110,7 +110,7 @@ export default function ContactForm() {
                                     <FormControl>
                                         <input
                                             {...field}
-                                            className="w-full dark:bg-slate-100 text-slate-900 mt-2 p-3 rounded-lg focus:outline-none"
+                                            className="w-full p-3 mt-2 rounded-lg dark:bg-slate-100 text-slate-900 focus:outline-none"
                                             type="text"
                                             placeholder="Phone" />
                                     </FormControl>
@@ -128,7 +128,7 @@ export default function ContactForm() {
                                     <textarea
                                         {...field}
                                         placeholder="Message*"
-                                        className="w-full h-32 dark:bg-slate-100 text-slate-900 mt-6 mb-4 p-3 rounded-lg focus:outline-none"
+                                        className="w-full h-32 p-3 mt-6 mb-4 rounded-lg dark:bg-slate-100 text-slate-900 focus:outline-none"
                                     />
                                 </FormControl>
                                 <FormMessage />
@@ -138,24 +138,24 @@ export default function ContactForm() {
                     <SubmitButton
                         text="Send Message"
                         pending={isPending}
-                        className="uppercase font-man text-sm font-bold tracking-wide bg-blue-950 text-slate-100 p-3 rounded-lg focus:outline-none my-2 w-1/2 lg:w-1/4 hover:bg-blue-900 transition-colors duration-500" />
+                        className="w-1/2 p-3 my-2 text-sm font-bold tracking-wide uppercase transition-colors duration-500 rounded-lg font-man bg-blue-950 text-slate-100 focus:outline-none lg:w-1/4 hover:bg-blue-900" />
                 </form>
             </Form>
 
             <div
-                className="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-blue-950 rounded-2xl">
+                className="w-full px-8 py-12 ml-auto lg:-mt-96 lg:w-2/6 bg-blue-950 rounded-2xl">
                 <div className="flex flex-col text-white">
-                    <h1 className="text-lg font-nekst md:text-6xl mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center font-bold">
+                    <h1 className="mb-4 text-3xl font-bold text-center text-transparent sm:text-4xl font-nekst md:text-6xl bg-clip-text bg-gradient-to-b from-neutral-200 to-neutral-600">
                         Contact Us
                     </h1>
-                    <p className="text-slate-300 leading-6">
+                    <p className="leading-6 text-slate-300">
                         Welcome to E-learning, the best learning web app on the web.
                         We provide fun, enjoyable, and challenging games who want to learn English.
                         With us definitely you will learn English in a fun way, and of course we would love to hear from you,
                         so don&apos;t hesitate to contact us.
                     </p>
 
-                    <div className="flex mt-6 w-2/3  justify-start gap-2">
+                    <div className="flex justify-start w-2/3 gap-2 mt-6">
                         <FaMapMarkerAlt className='pt-2' size={25} />
                         <div className="flex flex-col">
                             <h2 className="text-2xl">Main Office</h2>

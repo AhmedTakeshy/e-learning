@@ -56,10 +56,10 @@ type GameSectionProps = {
 export default function GameSection({ level }: GameSectionProps) {
 
     return (
-        <AuroraBackground className="mt-32 w-screen z-10 h-auto">
+        <AuroraBackground className="z-10 w-screen h-auto mt-32">
             <section
                 id="games"
-                className="dark:text-white text-slate-800 mx-4 text-center"
+                className="mx-4 text-center dark:text-white text-slate-800"
             >
                 <motion.div
                     initial={{ opacity: 0.0, y: 30 }}
@@ -70,43 +70,45 @@ export default function GameSection({ level }: GameSectionProps) {
                         ease: "easeInOut",
                     }}
                     className="flex flex-col items-center justify-center gap-4 mt-4">
-                    <h1 className="lg:text-7xl md:text-4xl text-2xl font-bold text-center font-nekst">Game Section</h1>
-                    <p className="text-center lg:text-2xl md:text-lg mb-4 uppercase">
+                    <h1 className="text-2xl font-bold text-center lg:text-7xl md:text-4xl font-nekst">Game Section</h1>
+                    <p className="mb-4 text-center uppercase lg:text-2xl md:text-lg">
                         Here where the <span className="text-transparent animate-text bg-clip-text bg-gradient-to-r from-blue-500 via-orange-500 to-purple-500">fun </span> begins! <br /> Play games and learn at the same time.
                     </p>
                     <h2 className="lg:text-4xl md:text-2xl sm:text-lg">
                         First let&apos;s start with your level, choose one of the following:
                     </h2>
-                    <div className="flex items-center justify-between gap-6">
+                    <div className="flex items-center justify-between gap-3 sm:gap-6">
                         <Link href={{ query: { level: null } }} scroll={false} className="p-[3px] relative font-semibold">
-                            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+                            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500" />
                             <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
                                 All
                             </div>
                         </Link>
                         <Link className="p-[3px] relative font-semibold" scroll={false} href={{ query: { level: "A1-A2" } }}>
-                            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+                            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500" />
                             <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
                                 A1/A2
                             </div>
                         </Link>
                         <Link href={{ query: { level: "B1-B2" } }} scroll={false} className="p-[3px] relative font-semibold">
-                            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+                            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500" />
                             <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
                                 B1/B2
                             </div>
                         </Link>
                     </div>
-                    <p className="lg:text-xl md:text-lg flex flex-col gap-2 my-8">
-                        If you don&apos;t yet, it is not an issue here you can find out your level.
+                    <div className="relative z-10 flex flex-col items-center gap-2 my-8 lg:text-xl md:text-lg">
+                        <p>
+                            If you don&apos;t yet, it is not an issue here you can find out your level.
+                        </p>
                         <Link
-                            className={`inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50`}
+                            className={`inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 sm:w-full w-fit mt-2 `}
                             target="_blank"
                             href="https://www.cambridgeenglish.org/test-your-english/general-english/"
                         >
                             Take a level test
                         </Link>
-                    </p>
+                    </div>
                     <HoverEffect level={level} items={games} />
                 </motion.div>
             </section>

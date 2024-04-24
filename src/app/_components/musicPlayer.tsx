@@ -60,7 +60,7 @@ export default function MusicPlayer() {
                 volumeMute: <TbVolumeOff className='fill-indigo-400 w-7 h-7 hover:fill-white text-white hover:text-rose-600 [&_*]:transition-all [&_*]:duration-300 [&_*]:ease-in' />,
 
             }}
-            className='music z-50 fixed !w-1/12 p-4 rounded-lg top-12 right-0 duration-1000 ease-in-out transition-all group rotate-90'
+            className='music z-50 fixed !w-1/12 p-4 rounded-lg top-12 right-4 duration-1000 ease-in-out transition-all group rotate-90'
         />
     )
 }
