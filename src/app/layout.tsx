@@ -9,7 +9,6 @@ import SideMenu from "./_components/sideMenu";
 import MusicPlayer from "./_components/musicPlayer";
 import { headers } from "next/headers";
 import Footer from "./_components/footer";
-import { BackgroundBeams } from "@/components/background-beams";
 
 export const metadata: Metadata = {
   title: "E-Learning",
@@ -40,7 +39,7 @@ export default function RootLayout({ children }: Props) {
             {children}
           </main>
           <Footer />
-          <BackgroundBeams />
+
           <Toaster richColors />
         </ThemeProvider>
       </body>

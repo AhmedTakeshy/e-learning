@@ -2,6 +2,7 @@ import Banner from "./_components/banner";
 import Contact from "./_components/contact";
 import GameSection from "./_components/gameSection";
 import MapPreview from "./_components/mapPreview";
+import { BackgroundBeams } from "@/components/background-beams";
 
 type Props = {
   searchParams: { [key: string]: string | undefined }
@@ -18,6 +19,7 @@ export default function Home({ searchParams }: Props) {
       <MapPreview />
       <GameSection level={level} />
       <Contact />
+      <BackgroundBeams />
     </div>
   );
 }
